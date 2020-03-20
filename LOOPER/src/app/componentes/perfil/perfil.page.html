@@ -10,8 +10,24 @@
 <ion-content [fullscreen]="true">
   
 
-  <div id="container">
-    <strong class="capitalize">perfil</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- List of Sliding Items -->
+<ion-list>
+  
+  <img class="icon" src="../../../assets/icon/looper-07.png" alt="">
+
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input required type="text" [(ngModel)]="usuario.Nombre" name="nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input required type="text" [(ngModel)]="usuario.Apellido" name="apellido"></ion-input>
+  </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input required type="email" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>

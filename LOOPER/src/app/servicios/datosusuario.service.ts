@@ -1,8 +1,10 @@
+import { Iusuario } from './../interface/Iusuario';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
-import { observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { observable, Observable } from 'rxjs';
+import { Iusuario } from '../interface/Iusuario';
 
 
 
@@ -11,23 +13,53 @@ import { observable } from 'rxjs';
 })
 export class DatosusuarioService {
 
+
+private usuarioCollection: AngularFirestoreCollection<Iusuario>;
+private usuario: Observable<Iusuario[]>;
+
   constructor(private AFAuth: AngularFireAuth,
-              public db: AngularFirestore) { }
+              public db: AngularFirestore) {
+      this.usuarioCollection = this.db.collection<Iusuario>('usuarios');
 
+      this.usuario = this.usuarioCollection.snapshotChanges().pipe(
+        map(actions => {
+          return actions.map( a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
 
-getDatosUsuario(uid: string) {
-  console.log(uid);
-  return this.db.collection('/usuarios').doc(uid).snapshotChanges();
     }
 
-  getUsers() {
 
-    return new Promise<any>((resolve, reject) => {
-    this.db.collection('/usuarios').snapshotChanges()
-    .subscribe(snapshots => {
-      resolve(snapshots);
-    });
-  });
+getUsuarios() {
+  return this.usuario;
 }
+
+getUsuario(id) {
+  //return this.usuarioCollection.doc<Iusuario>(id).valueChanges();
+  return this.usuarioCollection.doc<Iusuario>(id).valueChanges().pipe(
+    take(1),
+    map(usu => {
+      usu.id = id;
+      return usu;
+    })
+  )
+}
+
+updateUsuario(user: Iusuario, id: string) {
+  return this.usuarioCollection.doc(id).update(user);
+}
+
+addUsuario(user: Iusuario) {
+  return this.usuarioCollection.add(user);
+}
+
+removeUsuario(id) {
+  return this.usuarioCollection.doc(id).delete();
+}
+
 
 }
