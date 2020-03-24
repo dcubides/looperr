@@ -3,6 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { DatosusuarioService } from '../../servicios/datosusuario.service';
 import { Iusuario } from './../../interface/Iusuario';
 import { LoadingController } from '@ionic/angular';
+import { ICategoria } from './../../interface/icategoria';
+import { CategoriasService } from './../../servicios/categorias.service';
+
 
 
 
@@ -17,19 +20,26 @@ export class PerfilPage implements OnInit {
 usuario: Iusuario  = {
   Apellido: '',
   Nombre: '',
-  id: ''
+  id: '',
+  TipoServicio: '',
+  Email: ''
 };
+
 todos: Iusuario[];
 
-email: string;
+categoria: ICategoria = {
+ id: '',
+ Categoria: ''
+};
+
 
   constructor(private AFAuth: AngularFireAuth,
               private servicio: DatosusuarioService,
-              public loading: LoadingController) { }
+              public loading: LoadingController,
+              private catService: CategoriasService) { }
 
   ngOnInit() {
     this.AFAuth.authState.subscribe(usuario => {
-      this.email = usuario.email;
       this.obtenerusuario(usuario.uid);
     });
 
@@ -49,13 +59,15 @@ email: string;
 
     this.servicio.getUsuario(usuario).subscribe(res => {
       this.usuario = res;
-      if(this.usuario) {
-    loading.dismiss();
-    }
+      this.obtenerCat();
+      loading.dismiss();
   });
-
   }
 
-
+  obtenerCat(){
+    this.catService.getCategoria(this.usuario.TipoServicio).subscribe(res => {
+      this.categoria = res;
+  });
+  }
 
 }

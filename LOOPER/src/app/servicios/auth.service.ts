@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Iusuario } from './../interface/Iusuario';
+import { Iusuarioreg } from './../interface/iusuarioreg';
+
 
 
 @Injectable({
@@ -24,15 +25,18 @@ export class AuthService {
   });
   }
 
-  register(email: string, password: string, nombre: string, apellido: string) {
+  register(login: Iusuarioreg) {
+
     return new Promise((resolve, rejected) => {
-      this.AFAuth.auth.createUserWithEmailAndPassword(email, password).then(
+      this.AFAuth.auth.createUserWithEmailAndPassword(login.email, login.password).then(
         res => {
           const uid = res.user.uid;
-          this.db.collection('usuarios').doc<Iusuario>(uid).set({
+          this.db.collection('usuarios').doc(uid).set({
             id: uid,
-            Nombre: nombre,
-            Apellido: apellido
+            Nombre: login.nombre,
+            Apellido: login.apellido,
+            Email: login.email,
+            TipoServicio: login.tipoServicio
           });
           resolve(res);
         }).catch(err => rejected(err));

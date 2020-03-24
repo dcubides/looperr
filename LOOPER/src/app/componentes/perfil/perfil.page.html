@@ -14,6 +14,10 @@
 <ion-list>
   
   <img class="icon" src="../../../assets/icon/looper-07.png" alt="">
+  <ion-item>
+    <ion-label position="floating">Categoría</ion-label>
+    <ion-input required type="text" [(ngModel)]="categoria.Categoria" name="categoria"></ion-input>
+  </ion-item>
 
   <ion-item>
     <ion-label position="floating">Nombre</ion-label>
@@ -27,7 +31,7 @@
 
     <ion-item>
       <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input required type="email" [(ngModel)]="email" name="email"></ion-input>
+      <ion-input required type="email" [(ngModel)]="usuario.Email" name="email"></ion-input>
     </ion-item>
   </ion-list>
 </ion-content>

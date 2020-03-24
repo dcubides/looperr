@@ -1,9 +1,8 @@
-import { Iusuario } from './../interface/Iusuario';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map, take } from 'rxjs/operators';
-import { observable, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Iusuario } from '../interface/Iusuario';
 
 

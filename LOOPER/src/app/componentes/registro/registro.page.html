@@ -1,36 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Nuevo usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <form [formGroup]="login" (ngSubmit)="registerForm()">
+
   <img class="icon" src="../../../assets/icon/looper-07.png" alt="">
 
-  <ion-item>
+  
+  
+    <ion-item class="space">
+    <ion-label position="floating">Categoría</ion-label>
+    <ion-select formControlName="tipoServicio" placeholder="Servicio" multiple="false" okText="Ok" cancelText="Salir">
+      <ion-select-option *ngFor="let item of categoria"  [value]="item.id">{{item.Categoria}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="space">
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input required type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
+    <ion-input  type="text" formControlName="nombre"></ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item class="space">
     <ion-label position="floating">Apellido</ion-label>
-    <ion-input required type="text" [(ngModel)]="apellido" name="apellido"></ion-input>
+    <ion-input  type="text" formControlName="apellido"></ion-input>
   </ion-item>
 
-    <ion-item>
+    <ion-item class="space">
       <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input required type="email" [(ngModel)]="email" name="email"></ion-input>
+      <ion-input  type="email" formControlName="email"></ion-input>
     </ion-item>
   
-    <ion-item>
+    <ion-item class="space">
       <ion-label position="floating">Conraseña</ion-label>
-      <ion-input required type="password" [(ngModel)]="password" name="password"></ion-input>
+      <ion-input  type="password" formControlName="password"></ion-input>
     </ion-item>
     <br>
-    <ion-button expand="block" color="light" (click)="OnSubmitRegister()" >Registrarse</ion-button>
+    <ion-button shape="round" type="submit" expand="block" color="light" [disabled]="!login.valid">Registrarse</ion-button>
     <br>
+  </form>
 </ion-content>
 
