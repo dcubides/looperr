@@ -1,5 +1,7 @@
 {
   "name": "LOOPER",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

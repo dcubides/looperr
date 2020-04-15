@@ -64,7 +64,7 @@ categoria: ICategoria = {
   });
   }
 
-  obtenerCat(){
+  obtenerCat() {
     this.catService.getCategoria(this.usuario.TipoServicio).subscribe(res => {
       this.categoria = res;
   });

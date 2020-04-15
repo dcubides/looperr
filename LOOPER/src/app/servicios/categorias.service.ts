@@ -1,5 +1,5 @@
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ICategoria } from './../interface/icategoria';
@@ -37,7 +37,8 @@ getCategorias() {
 
 
 getCategoria(id) {
-  return this.categoriaCollection.doc<ICategoria>(id).valueChanges();
+  console.log(id);
+  return this.categoriaCollection.doc<ICategoria>(id.toString()).valueChanges();
 }
 
 

@@ -1,21 +1,56 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Disponibilidad</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Disponibilidad</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Disponibilidad</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <br>
 
-  <div id="container">
-    <strong class="capitalize">Disponibilidad</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-content>
+
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Disponibilidad</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-label> Selecciona si te encuentras disponible o no para que otros usuarios te visualicen en sus búsquedas:</ion-label>
+            </ion-card-content>
+        </ion-card>
+
+        <br>
+        <br>
+
+        <ion-toolbar>
+            <ion-segment (ionChange)="segmentChanged($event)">
+                <ion-segment-button value="0">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </ion-segment-button>
+                <ion-segment-button value="1">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </ion-segment-button>
+            </ion-segment>
+        </ion-toolbar>
+
+        <br>
+
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Actualmente</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-label> Actualmente te encuentras:
+                    <ion-text color="danger">{{ disponibilidadDesc }}</ion-text>
+                </ion-label>
+            </ion-card-content>
+        </ion-card>
+
+    </ion-content>
 </ion-content>

@@ -38,6 +38,12 @@ export class AuthService {
             Email: login.email,
             TipoServicio: login.tipoServicio
           });
+
+          this.db.collection('disponibilidad').doc(uid).set({
+            id: uid,
+            Disponible: '1'
+          });
+
           resolve(res);
         }).catch(err => rejected(err));
     });

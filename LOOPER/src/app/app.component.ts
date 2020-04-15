@@ -7,6 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+import { DatosusuarioService } from './servicios/datosusuario.service';
+import { Iusuario } from './interface/Iusuario';
+
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -47,13 +52,18 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  usuario: Iusuario;
+
+  saludo: string;
+
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router: Router,
-    private AFAuth: AngularFireAuth
+    private AFAuth: AngularFireAuth,
+    private servceUser: DatosusuarioService
   ) {
     this.initializeApp();
   }
@@ -70,6 +80,17 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+
+    this.AFAuth.authState.subscribe(usuario => {
+      this.obtenerusuario(usuario.uid);
+    });
+  }
+
+  obtenerusuario(usuario) {
+    this.servceUser.getUsuario(usuario).subscribe(res => {
+      this.usuario = res;
+      this.saludo = 'Hola ' + this.usuario.Nombre;
+    });
   }
 
   singout() {
