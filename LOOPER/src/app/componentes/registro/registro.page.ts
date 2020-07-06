@@ -107,7 +107,7 @@ async registerForm() {
     });
     loading.dismiss();
     toast.present();
-    this.router.navigate(['../login']);
+    //this.router.navigate(['../configuracion']);
 
   }
 

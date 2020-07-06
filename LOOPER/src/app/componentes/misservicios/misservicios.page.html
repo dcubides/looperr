@@ -1,16 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Mis Servicios</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Mis Servicios</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <ion-button shape="round" expand="full" color="dark" (click)="nuevoServicioModal()">
+        <ion-icon slot="star" name="add-outline"></ion-icon>
+        Nuevo servicio
+    </ion-button>
 
-  <div id="container">
-    <strong class="capitalize">Mis serbicios</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+    <ion-list>
+        <!-- <ion-item *ngFor="let servicio of servicios | async" [routerLink]="'/contact-details/' + servicio.id">
+        <ion-label>{{ servicio.firstName }} {{ servicio.lastName }}</ion-label>
+      </ion-item> -->
+    </ion-list>
+
+
 </ion-content>

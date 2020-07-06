@@ -45,7 +45,7 @@ getUsuario(id) {
       usu.id = id;
       return usu;
     })
-  )
+  );
 }
 
 updateUsuario(user: Iusuario, id: string) {

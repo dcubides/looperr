@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Configuracion</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <form [formGroup]="tiposPrenda" (ngSubmit)="registerForm()">
+
+        <ion-item class="space">
+            <ion-label position="floating">Categoría</ion-label>
+            <ion-select formControlName="Categoria" placeholder="Categoria" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of categoriaspro" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Subcategoría</ion-label>
+            <ion-select formControlName="Subcategoria" placeholder="Subcategoria" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of subcategoria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Tipo prenda</ion-label>
+            <ion-input type="text" formControlName="Descripcion"></ion-input>
+        </ion-item>
+        <br>
+        <ion-button shape="round" type="submit" expand="block" color="light" [disabled]="!tiposPrenda.valid">Guardar</ion-button>
+        <br>
+    </form>
+
+</ion-content>

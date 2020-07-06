@@ -49,7 +49,12 @@ export class AppComponent implements OnInit {
       title: 'Disponibilidad',
       url: '/disponibilidad',
       icon: 'list-circle'
-    }
+    },
+    {
+      title: 'Configuracion',
+      url: '/configuracion',
+      icon: 'list-circle'
+    },
   ];
 
   usuario: Iusuario;

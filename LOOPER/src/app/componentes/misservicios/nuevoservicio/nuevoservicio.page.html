@@ -1,0 +1,87 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="dark">
+        <ion-title>Nuevo servicio</ion-title>
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="dismissModal()">
+                Cancel
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button color="primary" [disabled]="!misServiciosForm.valid" (click)="registro()">
+                Done
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="misServiciosForm" (ngSubmit)="registerForm()">
+
+        <ion-row class="center">
+            {{categoriausuario.Categoria}}
+        </ion-row>
+
+        <ion-item class="space">
+            <ion-label position="floating">Categoría</ion-label>
+            <ion-select formControlName="Categoria" placeholder="Categoria" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of categoria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Subcategoría</ion-label>
+            <ion-select formControlName="Subcategoria" placeholder="Subcategoria" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of subcategoria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Tipo prenda</ion-label>
+            <ion-select formControlName="TipoPrenda" placeholder="Tipo prenda" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of tipoprenda" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Maquinaria</ion-label>
+            <ion-select formControlName="Maquinaria" placeholder="Maquinaria" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of maquinaria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Tipo insumos</ion-label>
+            <ion-select formControlName="TipoInsumo" placeholder="Maquinaria" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of tipoinsumo" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Descripción</ion-label>
+            <ion-textarea formControlName="Descripcion" placeholder="Descripcion"></ion-textarea>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Cantidad</ion-label>
+            <ion-select formControlName="Cantidad" placeholder="Cantidad" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of cantidad" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Tipo pago</ion-label>
+            <ion-select formControlName="TipoPago" placeholder="Tipo pago" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option *ngFor="let item of pago" [value]="item.id">{{item.Descripcion}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item class="space">
+            <ion-label position="floating">Horario</ion-label>
+            <ion-input type="text" formControlName="Horario" placeholder="Horario"></ion-input>
+        </ion-item>
+
+
+
+    </form>
+
+</ion-content>
