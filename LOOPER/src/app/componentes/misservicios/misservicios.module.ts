@@ -8,6 +8,9 @@ import { MisserviciosPageRoutingModule } from './misservicios-routing.module';
 
 import { MisserviciosPage } from './misservicios.page';
 import { NuevoservicioPageModule } from './nuevoservicio/nuevoservicio.module';
+import { DetalleservicioPageModule } from './detalleservicio/detalleservicio.module';
+
+
 
 
 
@@ -18,7 +21,8 @@ import { NuevoservicioPageModule } from './nuevoservicio/nuevoservicio.module';
     ReactiveFormsModule,
     IonicModule,
     MisserviciosPageRoutingModule,
-    NuevoservicioPageModule
+    NuevoservicioPageModule,
+    DetalleservicioPageModule
   ],
   declarations: [MisserviciosPage]
 })

@@ -7,7 +7,7 @@
             </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button color="primary" [disabled]="!misServiciosForm.valid" (click)="registro()">
+            <ion-button color="primary" [disabled]="!misServiciosForm.valid" (click)="registerForm()">
                 Done
             </ion-button>
         </ion-buttons>
@@ -21,63 +21,71 @@
             {{categoriausuario.Categoria}}
         </ion-row>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="CategoriaForm">
             <ion-label position="floating">Categoría</ion-label>
-            <ion-select formControlName="Categoria" placeholder="Categoria" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="Categoria" formControlName="Categoria" placeholder="Categoria" multiple="false" okText="Ok" cancelText="Salir" (ionChange)="combosSelectsCat($event)">
                 <ion-select-option *ngFor="let item of categoria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="SubcategoriaForm">
             <ion-label position="floating">Subcategoría</ion-label>
-            <ion-select formControlName="Subcategoria" placeholder="Subcategoria" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="Subcategoria" formControlName="Subcategoria" placeholder="Subcategoria" multiple="false" okText="Ok" cancelText="Salir" (ionChange)="combosSelectsSubCat($event)">
                 <ion-select-option *ngFor="let item of subcategoria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="TipoPrendaForm">
             <ion-label position="floating">Tipo prenda</ion-label>
-            <ion-select formControlName="TipoPrenda" placeholder="Tipo prenda" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="TipoPrenda" formControlName="TipoPrenda" placeholder="Tipo prenda" multiple="false" okText="Ok" cancelText="Salir">
                 <ion-select-option *ngFor="let item of tipoprenda" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="MaquinariaForm">
             <ion-label position="floating">Maquinaria</ion-label>
-            <ion-select formControlName="Maquinaria" placeholder="Maquinaria" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="Maquinaria" formControlName="Maquinaria" placeholder="Maquinaria" multiple="false" okText="Ok" cancelText="Salir">
                 <ion-select-option *ngFor="let item of maquinaria" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="TipoInsumoForm">
             <ion-label position="floating">Tipo insumos</ion-label>
-            <ion-select formControlName="TipoInsumo" placeholder="Maquinaria" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="TipoInsumo" formControlName="TipoInsumo" placeholder="Maquinaria" multiple="false" okText="Ok" cancelText="Salir">
                 <ion-select-option *ngFor="let item of tipoinsumo" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="DescripcionForm">
             <ion-label position="floating">Descripción</ion-label>
-            <ion-textarea formControlName="Descripcion" placeholder="Descripcion"></ion-textarea>
+            <ion-textarea id="Descripcion" formControlName="Descripcion" placeholder="Descripcion"></ion-textarea>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="CantidadForm">
             <ion-label position="floating">Cantidad</ion-label>
-            <ion-select formControlName="Cantidad" placeholder="Cantidad" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="Cantidad" formControlName="Cantidad" placeholder="Cantidad" multiple="false" okText="Ok" cancelText="Salir">
                 <ion-select-option *ngFor="let item of cantidad" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="TipoPagoForm">
             <ion-label position="floating">Tipo pago</ion-label>
-            <ion-select formControlName="TipoPago" placeholder="Tipo pago" multiple="false" okText="Ok" cancelText="Salir">
+            <ion-select id="TipoPago" formControlName="TipoPago" placeholder="Tipo pago" multiple="false" okText="Ok" cancelText="Salir">
                 <ion-select-option *ngFor="let item of pago" [value]="item.id">{{item.Descripcion}}</ion-select-option>
             </ion-select>
         </ion-item>
 
-        <ion-item class="space">
+        <ion-item class="space" *ngIf="HorarioForm">
             <ion-label position="floating">Horario</ion-label>
-            <ion-input type="text" formControlName="Horario" placeholder="Horario"></ion-input>
+            <ion-input type="text" id="Horario" formControlName="Horario" placeholder="Horario"></ion-input>
+        </ion-item>
+
+        <ion-item class="space" *ngIf="DomicilioForm">
+            <ion-label position="floating">Domicilio</ion-label>
+            <ion-select id="Domicilio" formControlName="Domicilio" placeholder="Domicilio" multiple="false" okText="Ok" cancelText="Salir">
+                <ion-select-option value="1">Si</ion-select-option>
+                <ion-select-option value="0">No</ion-select-option>
+            </ion-select>
         </ion-item>
 
 

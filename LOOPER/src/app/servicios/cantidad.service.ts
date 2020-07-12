@@ -15,7 +15,7 @@ export class CantidadService {
   constructor(
     private db: AngularFirestore
   ) {
-    this.cantidadCollection = this.db.collection<ICantidad>('Maquinaria');
+    this.cantidadCollection = this.db.collection<ICantidad>('Cantidad');
     this.cantidad = this.cantidadCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {

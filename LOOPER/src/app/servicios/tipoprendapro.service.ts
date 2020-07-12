@@ -35,6 +35,14 @@ private tipoPrenda: Observable<Itipoprenda[]>;
     return this.tipoPrendaCollection.doc<Itipoprenda>(id.toString()).valueChanges();
   }
 
+  getTipoPrendaCombos(categoria: string, subcategoria: string) {
+
+  return  this.db.collection<Itipoprenda>('TipoPrenda', ref => ref.where('Categoria', '==', categoria)
+                                                                  .where('Subcategoria', '==', subcategoria)).valueChanges();
+
+
+  }
+
   addTipoPrenda(tipoprenda: Itipoprenda) {
         return this.tipoPrendaCollection.add(tipoprenda);
   }

@@ -8,17 +8,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-button shape="round" expand="full" color="dark" (click)="nuevoServicioModal()">
-        <ion-icon slot="star" name="add-outline"></ion-icon>
-        Nuevo servicio
-    </ion-button>
-
+    
+        <ion-button shape="round" expand="full" color="dark" (click)="nuevoServicioModal()">
+            <ion-icon slot="star" name="add-outline"></ion-icon>
+            Nuevo servicio
+        </ion-button>
+   
 
     <ion-list>
-        <!-- <ion-item *ngFor="let servicio of servicios | async" [routerLink]="'/contact-details/' + servicio.id">
-        <ion-label>{{ servicio.firstName }} {{ servicio.lastName }}</ion-label>
-      </ion-item> -->
+         <ion-item *ngFor="let servicio of misServicios" [routerLink]="'/detalleservicio/' + servicio.id">
+            <ion-label>{{ servicio.Descripcion }}</ion-label>
+            <ion-label>{{ servicio.id }}</ion-label>
+        </ion-item> 
     </ion-list>
+
 
 
 </ion-content>

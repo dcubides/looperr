@@ -27,8 +27,13 @@ export class MisserviciosService {
     );
     }
 
+    getServiciosid(Id: string) {
+      return this.misServiciosCollection.doc<IMisservicios>(Id.toString()).valueChanges();
+    }
+
     getServiciosusuario(IdUsuario: string) {
-      return this.misServiciosCollection.doc<IMisservicios>(IdUsuario.toString()).valueChanges();
+      console.log(IdUsuario);
+      return  this.db.collection<IMisservicios>('Servicios', ref => ref.where('Idusuario', '==', IdUsuario)).valueChanges();
     }
 
     addServiciosusuario(servicio: IMisservicios) {

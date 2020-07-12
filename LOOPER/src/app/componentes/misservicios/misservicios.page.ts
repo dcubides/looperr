@@ -15,7 +15,7 @@ import { NuevoservicioPage } from './nuevoservicio/nuevoservicio.page';
 })
 export class MisserviciosPage implements OnInit {
 
-  misServicios: IMisservicios;
+  public  misServicios: IMisservicios[];
   idusuario: string;
 
   constructor(
@@ -25,7 +25,7 @@ export class MisserviciosPage implements OnInit {
     private ServiciosService: MisserviciosService,
     private loading: LoadingController
   ) {
-
+    console.log(this.misServicios);
    }
 
   ngOnInit() {
@@ -45,12 +45,14 @@ export class MisserviciosPage implements OnInit {
       backdropDismiss: true
     });
     loading.present();
+    console.log(usuario);
 
-    this.ServiciosService.getServiciosusuario(usuario).subscribe(res => {
+    const servicios = await this.ServiciosService.getServiciosusuario(usuario).subscribe(res => {
       this.misServicios = res;
-      //this.MostrarDisponible();
-      loading.dismiss();
-  });
+      console.log(this.misServicios);
+    });
+
+    loading.dismiss();
   }
 
 

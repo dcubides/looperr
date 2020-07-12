@@ -1,17 +1,16 @@
 export interface IMisservicios {
     id: string;
-    IdUsuario: string;
-    IdCategoria?: number;
-    IdSubcategoria?: number;
-    IdTipoInsumo?: number;
-    IdTipoTela?: number;
-    IdTipoMaquinaria?: number;
-    IdProducto?: string;
+    Idusuario: string;
+    Categoria: number;
+    Subcategoria: number;
+    TipoPrenda: number;
+    Maquinaria: number;
+    TipoInsumo: number;
     Descripcion: string;
-    cantidad?: number;
-    pago?: number;
-    Horario?: string;
-    Domicilio?: string;
+    Cantidad: string;
+    TipoPago: number;
+    Horario: number;
+    Domicilio: string;
 
 }
 
