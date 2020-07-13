@@ -180,7 +180,7 @@ export class NuevoservicioPage implements OnInit {
   }
 
   formulariPorCategoria() {
-
+    const id = parseInt(this.categoriausuario.id, 2);
     const CategoriaControl = this.misServiciosForm.get('Categoria');
     const SubcategoriaControl = this.misServiciosForm.get('Subcategoria');
     const TipoPrendaControl = this.misServiciosForm.get('TipoPrenda');
@@ -193,7 +193,7 @@ export class NuevoservicioPage implements OnInit {
     const DomicilioControl = this.misServiciosForm.get('Domicilio');
 
 
-    if (this.categoriausuario.id === 1) {
+    if (id === 1) {
       this.CategoriaForm = true;
       this.SubcategoriaForm = true;
       this.TipoPrendaForm = true;
@@ -219,7 +219,7 @@ export class NuevoservicioPage implements OnInit {
 
     }
 
-    if (this.categoriausuario.id === 2) {
+    if (id === 2) {
       this.CategoriaForm = true;
       this.SubcategoriaForm = true;
       this.TipoPrendaForm = true;
@@ -244,7 +244,7 @@ export class NuevoservicioPage implements OnInit {
 
   }
 
-    if (this.categoriausuario.id === 3) {
+    if (id === 3) {
     this.CategoriaForm = false;
     this.SubcategoriaForm = false;
     this.TipoPrendaForm = false;
@@ -269,7 +269,7 @@ export class NuevoservicioPage implements OnInit {
 
   }
 
-    if (this.categoriausuario.id === 4) {
+    if (id === 4) {
   this.CategoriaForm = false;
   this.SubcategoriaForm = false;
   this.TipoPrendaForm = false;
@@ -294,7 +294,7 @@ export class NuevoservicioPage implements OnInit {
 
 }
 
-    if (this.categoriausuario.id === 5) {
+    if (id === 5) {
   this.CategoriaForm = false;
   this.SubcategoriaForm = false;
   this.TipoPrendaForm = false;
@@ -318,7 +318,7 @@ export class NuevoservicioPage implements OnInit {
   DomicilioControl.setValidators([Validators.required]);
 }
 
-    if (this.categoriausuario.id === 6) {
+    if (id === 6) {
   this.CategoriaForm = false;
   this.SubcategoriaForm = false;
   this.TipoPrendaForm = false;
@@ -342,7 +342,7 @@ export class NuevoservicioPage implements OnInit {
   DomicilioControl.setValidators([Validators.required]);
 }
 
-    if (this.categoriausuario.id === 7) {
+    if (id === 7) {
   this.CategoriaForm = false;
   this.SubcategoriaForm = false;
   this.TipoPrendaForm = false;
@@ -366,7 +366,7 @@ export class NuevoservicioPage implements OnInit {
   DomicilioControl.setValidators([Validators.required]);
 }
 
-    if (this.categoriausuario.id === 8) {
+    if (id === 8) {
   this.CategoriaForm = false;
   this.SubcategoriaForm = false;
   this.TipoPrendaForm = false;

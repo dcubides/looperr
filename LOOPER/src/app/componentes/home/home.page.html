@@ -8,6 +8,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <ion-button shape="round" expand="full" color="dark" (click)="nuevoServicioModal()">
+        <ion-icon slot="star" name="add-outline"></ion-icon>
+        Nueva noticia
+    </ion-button>
+
+    <div>
+        <ion-card color="light" *ngFor="let servicio of noticias" [routerLink]="'detalleservicio/' + servicio.id">
+                <ion-card-header>
+                    <ion-card-title>
+                    <span style="color:blue">Servicio</span>
+                    <ion-icon slot="end" name="ellipsis-vertical-outline" [routerLink]="'detalleservicio/' + servicio.id"></ion-icon>
+                    </ion-card-title>
+                    <ion-thumbnail slot="start">
+                        <ion-img src="../../../assets/icon/img-top.png"></ion-img>
+                      </ion-thumbnail>
+                    </ion-card-header>
+            <ion-card-content color="light">
+                <h5><ion-icon name="pin" slot="start"></ion-icon> Descripcion: <b>Dato 1</b></h5>
+                <h5><ion-icon name="pin" slot="start"></ion-icon> Descripcion: <b>Dato 1</b></h5>
+                <h5><ion-icon name="pin" slot="start"></ion-icon> Descripcion: <b>Dato 1</b></h5>
+            </ion-card-content>
+        </ion-card>
+     </div>
+    
+
+
+
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">
         <ion-fab-button>
             <ion-icon name="search-outline"></ion-icon>

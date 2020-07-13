@@ -37,7 +37,6 @@ getCategorias() {
 
 
 getCategoria(id) {
-  console.log(id);
   return this.categoriaCollection.doc<ICategoria>(id.toString()).valueChanges();
 }
 

@@ -31,7 +31,7 @@ export class CantidadService {
     return this.cantidad;
   }
 
-  getMaquinariaid(id) {
+  getCantidadid(id) {
     return this.cantidadCollection.doc<ICantidad>(id.toString()).valueChanges();
   }
 }

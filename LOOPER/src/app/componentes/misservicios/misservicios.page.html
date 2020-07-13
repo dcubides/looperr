@@ -15,13 +15,19 @@
         </ion-button>
    
 
-    <ion-list>
-         <ion-item *ngFor="let servicio of misServicios" [routerLink]="'/detalleservicio/' + servicio.id">
-            <ion-label>{{ servicio.Descripcion }}</ion-label>
-            <ion-label>{{ servicio.id }}</ion-label>
-        </ion-item> 
-    </ion-list>
-
+<div>
+    <ion-card color="light" *ngFor="let servicio of misServicios" [routerLink]="'detalleservicio/' + servicio.id">
+            <ion-card-header [translucent]="true">
+                <ion-card-title>
+                <span style="color:blue">Servicio</span>
+                <ion-icon slot="end" name="ellipsis-vertical-outline" [routerLink]="'detalleservicio/' + servicio.id"></ion-icon>
+                </ion-card-title>
+                </ion-card-header>
+        <ion-card-content color="light">
+            <h5><ion-icon name="pin" slot="start"></ion-icon> Descripcion: <b>{{servicio.Descripcion}}</b></h5>
+        </ion-card-content>
+    </ion-card>
+ </div>
 
 
 </ion-content>

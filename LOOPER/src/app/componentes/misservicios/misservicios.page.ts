@@ -25,7 +25,7 @@ export class MisserviciosPage implements OnInit {
     private ServiciosService: MisserviciosService,
     private loading: LoadingController
   ) {
-    console.log(this.misServicios);
+
    }
 
   ngOnInit() {
@@ -45,11 +45,9 @@ export class MisserviciosPage implements OnInit {
       backdropDismiss: true
     });
     loading.present();
-    console.log(usuario);
 
     const servicios = await this.ServiciosService.getServiciosusuario(usuario).subscribe(res => {
       this.misServicios = res;
-      console.log(this.misServicios);
     });
 
     loading.dismiss();

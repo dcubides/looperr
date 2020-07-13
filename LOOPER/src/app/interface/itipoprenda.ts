@@ -1,5 +1,5 @@
 export interface Itipoprenda {
-    id: number;
+    id: string;
     Categoria: number;
     Subcategoria: number;
     Descripcion: string;

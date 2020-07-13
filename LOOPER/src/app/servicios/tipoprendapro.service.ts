@@ -32,14 +32,13 @@ private tipoPrenda: Observable<Itipoprenda[]>;
   }
 
   getTipoPrendaId(id) {
-    return this.tipoPrendaCollection.doc<Itipoprenda>(id.toString()).valueChanges();
+    return this.tipoPrendaCollection.doc<Itipoprenda>(id).valueChanges();
   }
 
   getTipoPrendaCombos(categoria: string, subcategoria: string) {
 
   return  this.db.collection<Itipoprenda>('TipoPrenda', ref => ref.where('Categoria', '==', categoria)
                                                                   .where('Subcategoria', '==', subcategoria)).valueChanges();
-
 
   }
 
